@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <h1>Hello USERNAME</h1>
+    <hr>
+    <!--Post a message-->
+    <form action="/home" method="post" id="Input">
+        <input type="text" name="message" id="InputText">
+        <button type="button" onclick="sendMessage()" id="InputSend">Post</button>
+    </form>
+    <!--See messages area-->
+    <div id="messageArea">
+
+    </div>
+    <!---->
+    <script src="/static/script.js">
+    </script>
+</body>
+
+</html>

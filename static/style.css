@@ -1,0 +1,88 @@
+/* style.css */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: -apple-system, system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    /* Middle sized and middle boldness */
+    font-size: 16px;
+    font-weight: 500;
+}
+
+h1 {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    margin: 0;
+    padding: 1rem;
+    font-size: 1.3rem;
+    background-color: #181818;
+    color: #ffffff;
+    border-bottom: 1px solid #333;
+    text-align: center;
+}
+
+#Input {
+    position: sticky;
+    top: 3.7rem;
+    /* Pins it right below the H1 */
+    z-index: 10;
+    display: flex;
+    gap: 10px;
+    padding: 12px;
+    background-color: #181818;
+    border-bottom: 1px solid #333;
+}
+
+#InputText {
+    flex: 1;
+    background-color: #252525;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 12px;
+    color: #fff;
+    font-size: 16px;
+    /* 16px is required to stop iOS auto-zoom */
+    outline: none;
+}
+
+#InputSend {
+    background-color: #bb86fc;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 0 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#message {
+    background-color: #2a2a2a;
+    margin: 10px 15px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    max-width: 85%;
+    width: fit-content;
+    border: 1px solid #383838;
+    line-height: 1.5;
+}
+
+/* For larger screens: keeps the chat from getting too wide */
+@media (min-width: 600px) {
+    body {
+        max-width: 500px;
+        margin: 0 auto;
+        border-left: 1px solid #333;
+        border-right: 1px solid #333;
+    }
+}
