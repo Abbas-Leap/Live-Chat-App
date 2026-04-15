@@ -1,9 +1,5 @@
 Home Page
-    -Read cookie
     -Render home html
-
-History
-    -Fetch messages history
 
 Send
     -Recieve message from user

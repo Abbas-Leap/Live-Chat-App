@@ -2,9 +2,9 @@ import json
 from pathlib import Path
 
 basePath = Path(__file__).resolve().parent
-filePath = basePath / "visitors.json"
+filePath = basePath / "data.json"
 
-filePath.write_text(json.dumps({"visitors": []}))
+filePath.write_text(json.dumps({"visitors": [], "messages": []}))
 
 
 def readFile():
@@ -14,7 +14,7 @@ def readFile():
 
 
 def saveFile(content):
-    formattedContent = json.dumps({"visitors": content})
+    formattedContent = json.dumps(content)
 
     filePath.write_text(formattedContent)
 
@@ -24,16 +24,24 @@ def fetchData() -> dict:
 
 
 def saveVisitorName(visitorName):
-    content = json.loads(readFile())["visitors"]
+    content = json.loads(readFile())
 
-    content.append(visitorName)
+    content["visitors"].append(visitorName)
 
     saveFile(content)
 
 
 def removeVisitorName(visitorName):
-    content = json.loads(readFile())["visitors"]
+    content = json.loads(readFile())
 
-    content.remove(visitorName)
+    content["visitors"].remove(visitorName)
 
-    saveFile(content)
+    saveFile(content=content)
+
+
+def saveMessage(message):
+    content = json.loads(readFile())
+
+    content["messages"].append(message)
+
+    saveFile(content=content)
