@@ -2,18 +2,19 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/static/styleLogin.css">
+    <link rel="stylesheet" href="/static/loginStyle.css">
 </head>
 
 <body>
-    <h1>Please enter a username</h1><br>
-    <form action="/login" method="post" id="Input">
-        <input type="text" name="username" id="TextInput"><br>
-        <button type="submit" id="ButtonInput">Proceed</button>
+    <h1>Welcome to my chat website</h1>
+    <h3>Please enter a visitor name</h3>
+    <form class="loginForm" id="loginForm">
+        <input type="text" placeholder="Enter visitor name" id="visitorName" class="textInput">
+        <button type="submit" class="textSubmitButton" onclick="sendLoginData()">Login</button>
     </form>
+
+    <script src="/static/login.js"></script>
 </body>
 
 </html>

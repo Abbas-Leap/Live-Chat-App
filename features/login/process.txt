@@ -1,0 +1,11 @@
+1. User types in box and hits Login or Submits
+
+2. JavaScript takes that input and filters out names less that 3 characters and sends to server through '/loginComm' to keep everything live
+
+3. Server takes the data (in json) and passes it to api
+
+4. First the api checks whether the name is found or not and returns the result
+    - If the name is found the main code returns a json with a message to user and doesnot login them in
+    - If the name is not found the main code executes step 2 of api which is save the visitor name to database
+
+5. Finally main code saves the visitor name as cookie and redirects user to home page

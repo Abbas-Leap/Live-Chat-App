@@ -1,0 +1,99 @@
+/* 1. Box Sizing Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Centers the form vertically and horizontally in the viewport */
+body {
+    background-color: #0F172A;
+    /* Deep Obsidian */
+    color: #CBD5E1;
+    /* Cool Grey */
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    /* Stacks content vertically */
+    justify-content: center;
+    /* Vertical center */
+    align-items: center;
+    /* Horizontal center */
+    min-height: 100vh;
+}
+
+h1 {
+    color: #FFFFFF;
+    /* Pure White */
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+    text-align: center;
+    /* Keeps text aligned with the vertical stack */
+}
+
+h3 {
+    color: #94A3B8;
+    /* Slate Blue */
+    font-weight: normal;
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    text-align: center;
+    /* Keeps text aligned with the vertical stack */
+}
+
+.loginForm {
+    background-color: #1E293B;
+    /* Dark Navy */
+    padding: clamp(1.25rem, 5vw, 2.5rem);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    /* Forces vertical alignment of inputs/buttons */
+    gap: clamp(0.75rem, 2vw, 1.25rem);
+
+    width: 100%;
+    max-width: 400px;
+}
+
+.textInput {
+    background-color: #0F172A;
+    /* Deep Obsidian */
+    color: #CBD5E1;
+    /* Cool Grey */
+    border: 1px solid #94A3B8;
+    /* Slate Blue */
+    padding: 0.85rem;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.textInput:focus {
+    outline: none;
+    border-color: #6366F1;
+    /* Electric Indigo */
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.25);
+}
+
+.textSubmitButton {
+    background-color: #6366F1;
+    /* Electric Indigo */
+    color: #FFFFFF;
+    /* Pure White */
+    border: none;
+    padding: 0.85rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.textSubmitButton:hover {
+    background-color: #4F46E5;
+}

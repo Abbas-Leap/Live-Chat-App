@@ -1,0 +1,6 @@
+Background	Deep Obsidian	#0F172A
+Titles	Pure White	#FFFFFF
+Subtitles	Slate Blue	#94A3B8
+Body Text	Cool Grey	#CBD5E1
+Forms/Inputs	Dark Navy	#1E293B
+Input Focus	Electric Indigo	#6366F1
