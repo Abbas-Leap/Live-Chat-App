@@ -1,16 +1,17 @@
 document.getElementById("loginForm").addEventListener("submit", async function (event) {
     event.preventDefault();
     let visitorName = document.getElementById("visitorName");
+    visitorName = visitorName.value.trim();
     // To block noise from server
-    if (visitorName.value.length < 3) {
-        alert("Visitor name must be atleast 3 characters long");
+    if (visitorName.length < 3 || visitorName.length > 15) {
+        alert("Visitor name must be between 3 and 15 characters long");
         return;
     }
 
     let response = (await fetch('/loginComm', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ "visitorName": visitorName.value })
+        body: JSON.stringify({ "visitorName": visitorName })
     }));
 
     response = await response.json();

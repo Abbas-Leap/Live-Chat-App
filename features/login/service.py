@@ -11,4 +11,4 @@ def visitorNameInDataBase(visitorName):
 
 
 def saveVisitorName(visitorName):
-    dataBaseAPI.saveVisitorName(visitorName=visitorName)
+    dataBaseAPI.addVisitorName(visitorName=visitorName)

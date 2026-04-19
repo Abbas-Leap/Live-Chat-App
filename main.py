@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask, request
+from flask import Flask, Response, request
 from flask.helpers import make_response, url_for
 from flask.json import jsonify
 from flask.templating import render_template
@@ -11,6 +11,10 @@ from features.login import api as loginAPI
 from features.validateCookies import api as validateCookiesAPI
 
 app = Flask(__name__)
+
+print(dataBaseAPI.fetchData())
+print(dataBaseAPI.addMessage("Hello"))
+print(dataBaseAPI.fetchData())
 
 
 @app.route("/")
