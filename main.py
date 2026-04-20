@@ -7,14 +7,11 @@ from flask.templating import render_template
 from werkzeug.utils import redirect
 
 from dataBase import api as dataBaseAPI
+from features.chat import api as chatAPI
 from features.login import api as loginAPI
 from features.validateCookies import api as validateCookiesAPI
 
 app = Flask(__name__)
-
-print(dataBaseAPI.fetchData())
-print(dataBaseAPI.addMessage("Hello"))
-print(dataBaseAPI.fetchData())
 
 
 @app.route("/")
@@ -72,3 +69,26 @@ def homeCommOneTime():
     data["messages"] = dataBaseAPI.fetchData()["messages"]
 
     return jsonify(data)
+
+
+@app.route("/homeCommSendMessage", methods=["POST"])
+def homeCommSendMessage():
+    data = request.get_json()
+    # Validate the message
+    if not chatAPI.isMessageValid(message=data["message"]):
+        return jsonify({"status": "declined", "message": "invalid message"})
+    # Format message
+    message = chatAPI.formatMessage(
+        message=data["message"], visitorName=str(request.cookies.get("visitorName"))
+    )
+    # Save
+    dataBaseAPI.addMessage(message=message)
+    # Send
+    chatAPI.sendMessageToAllClients(message=message)
+
+    return jsonify({"status": "ok", "message": "successful"})
+
+
+@app.route("/homeCommStream", methods=["POST", "GET"])
+def generator():
+    return Response(chatAPI.getGeneratorCopy(), mimetype="text/event-stream")

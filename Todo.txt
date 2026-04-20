@@ -1,8 +1,0 @@
-Home Page
-    -Render home html
-
-Send
-    -Recieve message from user
-    -Send to all clients via generator
-    -Update them
-Fix clients reset and fix the stream

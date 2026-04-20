@@ -26,6 +26,7 @@ document.addEventListener("submit", async function (event) {
         alert("Message should be between 1 and 100 characters");
         return;
     }
+    document.getElementById("sendMessageInp").value = "";
     // Send it via /homeCommSendMessage
     let response = await fetch("/homeCommSendMessage", {
         method: "POST",
@@ -57,3 +58,7 @@ function loadMessage(message) {
 
     document.getElementById("messageArea").prepend(node);
 }
+
+new EventSource(`${window.location.origin}/homeCommStream`).onmessage = (event) => {
+    loadMessage(event.data);
+};
