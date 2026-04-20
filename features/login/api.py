@@ -11,6 +11,4 @@ def validateVisitorName(visitorName) -> dict:
 
 
 def saveVisitorName(visitorName):
-    service.saveVisitorName(visitorName=visitorName)
-
-    return {"status": "ok", "msg": "Visitor name saved"}
+    return service.saveVisitorName(visitorName=visitorName)
