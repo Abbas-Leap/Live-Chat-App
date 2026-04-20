@@ -1,0 +1,20 @@
+1. User types chat message and sends
+
+2. Javascript filters noise from server (messages between 1 and 100 characters)
+
+3. Server recieves the message through a '/homeCommSendMesssage' to keep stuff live
+
+4. Server validates message (same as javascript to filter noise)
+
+5. Server formats the message (user: message)
+
+6. Server saves the message in data base and adds it to generator
+
+Generator
+    1. Generator recieves formatted message
+
+    2. Adds it to queue
+
+    3. returns it to response object and sends to java script
+
+    4. java script updates homepage through a message template

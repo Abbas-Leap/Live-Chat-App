@@ -16,6 +16,31 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 });
 
+document.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    // Get message and remove white space
+    let message = document.getElementById("sendMessageInp");
+    message = message.value.trim();
+    // Filter noise
+    if (message.length < 1 || message.length > 100) {
+        alert("Message should be between 1 and 100 characters");
+        return;
+    }
+    // Send it via /homeCommSendMessage
+    let response = await fetch("/homeCommSendMessage", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ "message": message })
+    });
+    // Get the response from server
+    response = await response.json();
+
+    if (response["status"] == "ok")
+        return;
+
+    alert(response["message"]);
+});
+
 async function getData() {
     let response = (await fetch('/homeCommOneTime', {
         method: "POST"
